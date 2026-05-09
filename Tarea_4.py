@@ -267,3 +267,24 @@ if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando direct
                     precio,
                     horas
                 )
+                # ALQUILER DE EQUIPOS
+            
+            elif opcion == 2:  # Si presiona tecla 2, escogerá alquiler de equipos
+
+                nombre_servicio = input(  # Se solicita ingresar el nombre del equipo a alquilar
+                    "Ingrese nombre del equipo: "
+                )
+
+                precio = float(  # Se ingresa el costo del equipo
+                    input("Ingrese precio base: ")
+                )
+
+                dias = int(  # Cantidad de dias que solicita el usuario
+                    input("Ingrese cantidad de días: ")
+                )
+
+                servicio = AlquilerEquipo(  # Guarda la información de la reserva
+                    nombre_servicio,
+                    precio,
+                    dias
+                )
