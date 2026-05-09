@@ -179,3 +179,47 @@ if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando direct
 
             cliente1.mostrar_info()  # Se muestra la información del cliente
             
+            while True:  # Se crea un ciclo infinito, para hacer correciones del dato del cliente
+                    # Se muestra en pantalla un menú en caso requerir modificación de los datos
+                print("\n===== MODIFICAR CLIENTE =====")
+                print("1. Modificar nombre")
+                print("2. Modificar correo")
+                print("3. Modificar teléfono")
+                print("4. Continuar")  # Se hará brear para continuar con el programa
+
+                opcion_modificar = input("Seleccione una opción: ")  # Se solicita la opción para continuar
+
+                if opcion_modificar == "1":  # si presiona 1
+
+                    nuevo_nombre = input(  # Se solicita ingresar el nuevo nombre
+                        "Ingrese el nuevo nombre: "
+                    )
+
+                    cliente1.set_nombre(nuevo_nombre)  # Se hace el reemplazo
+
+                elif opcion_modificar == "2":  # Si presiona 2
+
+                    nuevo_correo = input(  # Se solicita ingresar el nuevo correo
+                        "Ingrese el nuevo correo: "
+                    )
+
+                    cliente1.set_correo(nuevo_correo)  # Se hace el reemplazo
+
+                elif opcion_modificar == "3":  # Si presiona 3
+
+                    nuevo_telefono = input(  # Se solicita ingresar el nuevo teléfono
+                        "Ingrese el nuevo teléfono: "
+                    )
+
+                    cliente1.set_telefono(nuevo_telefono)  # Se hace el reemplazo
+
+                elif opcion_modificar == "4":  # Si presiona 4
+
+                    break  # Se activa el break y sale de este while
+
+                else:
+
+                    print("Opción inválida")  # Si no presiona una de las opciones anteriores, mostrará que no fue una opción válida
+
+                cliente1.mostrar_info()  # Muestra la información del cliente
+            break  # Sale del while
