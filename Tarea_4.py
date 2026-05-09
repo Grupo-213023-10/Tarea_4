@@ -288,3 +288,26 @@ if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando direct
                     precio,
                     dias
                 )
+                 # ASESORÍA ESPECIALIZADA
+            
+
+            elif opcion == 3:  # Si presiona tecla 3, escogerá alquiler de equipos
+
+                nombre_servicio = input(  # Se solicita ingresar el nombre o tipo de asesoría
+                    "Ingrese nombre de la asesoría: "
+                )
+
+                precio = float(  # Precio de la asesoría
+                    input("Ingrese precio base: ")
+                )
+
+                horas = int(  # Horas en la asesoría
+                    input("Ingrese cantidad de horas: ")
+                )
+
+                servicio = AsesoriaEspecializada(  # Guarda la información
+                    nombre_servicio,
+                    precio,
+                    horas
+                )
+                
