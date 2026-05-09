@@ -13,4 +13,8 @@ logging.basicConfig(
 
     # Formato del mensaje
     format="%(asctime)s - %(levelname)s - %(message)s"
+<<<<<<< HEAD
 )
+=======
+)
+>>>>>>> 7d5da7e26bac278cba758e956c8a8a1eea15c6bd
