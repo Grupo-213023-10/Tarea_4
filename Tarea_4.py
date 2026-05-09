@@ -132,3 +132,50 @@ class Cliente(Entidad): # Se crea la clase cliente
         print(f"Nombre: {self.__nombre}")
         print(f"Correo: {self.__correo}")
         print(f"Teléfono: {self.__telefono}")
+
+
+
+
+
+
+
+
+
+
+if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando directamente
+
+    print("\n========= SOFTWARE FJ =========") # Nombre de la empresa
+
+    reservas = []  # Se crea la lista vacía en donde se guardarán las reservas
+
+    # Contador de operaciones
+    operaciones = 0  # Se hace un conteo del número de operaciones, esto porque la actividad solicita
+                        # que el sistema permita realizar al menos 10 operaciones
+   
+    # CREACIÓN DEL CLIENTE
+    while True:  # Crea un cliclo infinito hasta que se usa break, esto con el fin de que si hay errores
+                    # vuelva a preguntar por los datos
+        try:
+
+            print("\n===== REGISTRO DE CLIENTE =====")  # Área del programa en la que se encuentra
+
+            nombre = input("Ingrese el nombre: ")  # Solicita nombre del usuario
+
+            correo = input("Ingrese el correo: ")  # Solicita el correo
+
+            telefono = input("Ingrese el teléfono: ")  # Solicita teléfono
+
+            # Crear cliente
+            cliente1 = Cliente(  # Se crea un objeto cliente
+                nombre,
+                correo,
+                telefono
+            )
+
+            # Operación exitosa
+            operaciones += 1  # Incrementa el contador de operaciones
+
+            print("\nCliente creado correctamente")  # Si todo sale bien, lo mostrará en pantalla
+
+            cliente1.mostrar_info()  # Se muestra la información del cliente
+            
