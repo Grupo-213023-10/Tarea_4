@@ -230,3 +230,19 @@ if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando direct
             print(f"\n{error}")  # Muestra en pantalla el error
 
             print("Por favor intente nuevamente...\n")  # Muestra en pantalla que intente        
+            
+            # CREACIÓN DEL SERVICIO
+    
+    while True:  # Se crea ciclo infinito, en donde se escogerá el servicio deseado por el cliente
+
+        try:  # Se usa try para manejar los errores
+
+            # Se muestra menú para escoger el servicio
+            print("\n===== SERVICIOS DISPONIBLES =====")
+            print("1. Reserva de Sala")
+            print("2. Alquiler de Equipo")
+            print("3. Asesoría Especializada")
+
+            opcion = int( # Opción para ingresar el servicio
+                input("\nSeleccione un servicio: ")
+            )
