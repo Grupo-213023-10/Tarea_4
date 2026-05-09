@@ -310,4 +310,15 @@ if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando direct
                     precio,
                     horas
                 )
-                
+            else:
+
+                raise ValueError("Opción inválida")  # Saldrá error si no se escoge una de las opciones anteriores
+
+            # Operación exitosa
+            operaciones += 1  # Se suma el conteo de operaciónes
+
+            print("\nServicio creado correctamente")  # Confirmación del servicio
+
+            servicio.mostrar_info()  # Se muestra la información del servicio solicitado
+
+            break  # Se sale del while de servicios
