@@ -17,102 +17,117 @@ class Entidad(ABC):  # Se crea la clase abstracta entidad
 
     @abstractmethod  # Indica que el método siguiente debe implementarse obligatoriamente en las clases hijas.
     
-    def mostrar_info(self):
-        pass
+    def mostrar_info(self):  # Se realiza la función de mostrar información
+        pass  # Esta función estará vacía momentaneamente
 
 # Clase Cliente
-class Cliente(Entidad):
+class Cliente(Entidad): # Se crea la clase cliente
 
     # Constructor
-    def __init__(self, nombre, correo, telefono):
+    def __init__(self, nombre, correo, telefono):  # Se inicia el constructor de la clase Cliente
 
-        try:
+        try:  # Con try empezaremos a manejar los errores
 
             # Validación del nombre
-            if not nombre.strip():
-                raise ValueError("El nombre está vacío")
+            if not nombre.strip():  # Se verifica que el nombre no esté vacío
+                raise ValueError("El nombre está vacío")  # Genera un error si el nombre está vacío
 
             # Validación del correo
-            if "@" not in correo:
-                raise ValueError("Correo inválido")
+            if "@" not in correo:  # Se verifica que el correo se válido usando al usar @
+                raise ValueError("Correo inválido")  # Genera error si no es un correo válido
 
             # Validación del teléfono
-            if not telefono.isdigit():
-                raise ValueError("El teléfono debe tener solo números")
+            if not telefono.isdigit():  # Se verifica que el número de teléfno tenga solo números
+                raise ValueError("El teléfono debe tener solo números")  # Genera error si el teléfono contiene letras u otros caracteres
 
             # Encapsulación de atributos
-            self.__nombre = nombre
-            self.__correo = correo
-            self.__telefono = telefono
+            self.__nombre = nombre  # Guarda el nombre como atributo privado
+            self.__correo = correo  # Guarda el correo como atributo privado
+            self.__telefono = telefono  # Guarda el teléfono como atributo privado
 
             # Registro en logs
-            logging.info(f"Cliente creado: {nombre}")
+            logging.info(f"Cliente creado: {nombre}")  # Registra en el log que el cliente fue creado
 
-        except ValueError as error:
+        except ValueError as error:  # Captura errores de validación.
 
-            # Guardamos error
+            # Se Guarda el error en el log
             logging.error(error)
 
-            # Encadenamiento de excepción
+            # Muestra una excepción personalizada encadenando el error original
             raise ClienteError("No se pudo crear el cliente") from error
 
-    # Getter nombre
-    def get_nombre(self):
-        return self.__nombre
+    
+    def get_nombre(self):  # Obtiene el nombre del cliente
+        return self.__nombre  # Retorna el nombre
 
-    # Getter correo
-    def get_correo(self):
-        return self.__correo
+    
+    def get_correo(self):  # Obtiene el correo 
+        return self.__correo  # Retorna el correo
 
-    # Getter teléfono
-    def get_telefono(self):
-        return self.__telefono
+    
+    def get_telefono(self):  # Obtiene el teléfono
+        return self.__telefono  # Retorna el teléfono
 
-    # Setter nombre
-    def set_nombre(self, nuevo_nombre):
+    
+    def set_nombre(self, nuevo_nombre): # Función para modificar el nombre
 
-        try:
-
-            # Validación
-            if not nuevo_nombre.strip():
-                raise ClienteError("Nombre inválido")
-
-            # Actualización
-            self.__nombre = nuevo_nombre
-
-            # Log
-            logging.info("Nombre actualizado")
-
-        except ClienteError as error:
-
-            logging.error(error)
-
-            print(error)
-
-    # Setter correo
-    def set_correo(self, nuevo_correo):
-
-        try:
+        try:  # Lo usamos para manejar los errores
 
             # Validación
-            if "@" not in nuevo_correo:
-                raise ClienteError("Correo inválido")
+            if not nuevo_nombre.strip(): # Verifica que el nuevo nombre no esté vacío
+                raise ClienteError("Nombre inválido")  # Muestra error si está vacío
 
-            # Actualización
-            self.__correo = nuevo_correo
+            self.__nombre = nuevo_nombre  # Actualiza el nombre
 
-            # Log
-            logging.info("Correo actualizado")
+            logging.info("Nombre actualizado")  # Guarda la actualización en el log
 
-        except ClienteError as error:
+        except ClienteError as error:  # Captura el error
 
-            logging.error(error)
+            logging.error(error)  # Guarda el error en el log
 
-            print(error)
+            print(error)  # Muestra en pantalla el error
 
-    # Método obligatorio heredado
-    def mostrar_info(self):
+    
+    def set_correo(self, nuevo_correo):  # Función para modificar el correo
 
+        try: # Lo usamos para manejar los errores
+
+            if "@" not in nuevo_correo:  # Verifica que sea un correo válido
+                raise ClienteError("Correo inválido")  # Muestra error si no es un correo válido
+
+            
+            self.__correo = nuevo_correo  # Actualiza el nuevo correo
+
+            
+            logging.info("Correo actualizado")  # Guarda la actualización en el log
+
+        except ClienteError as error:  # Captura el error
+
+            logging.error(error)  # Guarda el error en el log
+
+            print(error)  # Muestra en pantalla el error
+
+    def set_telefono(self, nuevo_telefono):  # Función para modificar el teléfono
+
+        try:  # Lo usamos para manejar los errores
+
+            
+            if not nuevo_telefono.isdigit():  # Verifica que sean números los ingresados
+                raise ClienteError( "El teléfono debe tener solo números")  # # Muestra error si no es un número
+
+           
+            self.__telefono = nuevo_telefono  # Guarda el nuevo número
+
+            logging.info("Teléfono actualizado")  # Guarda la actualización en el log
+
+        except ClienteError as error:  # Captura el error en el log
+
+            logging.error(error)  # Guarda el error en el log
+
+            print(error) # Muestra en pantalla el error   
+    
+    def mostrar_info(self): # Se usa la función de mostrar información
+        # Se muestra en pantalla los datos del cliente registrado
         print("\n===== CLIENTE =====")
         print(f"Nombre: {self.__nombre}")
         print(f"Correo: {self.__correo}")
