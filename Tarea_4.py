@@ -322,3 +322,12 @@ if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando direct
             servicio.mostrar_info()  # Se muestra la información del servicio solicitado
 
             break  # Se sale del while de servicios
+
+        except Exception as error: # Captura el error
+
+            # Operación fallida
+            operaciones += 1  # Suma a la operación
+
+            print(f"\n{error}")  # Muestra en pantalla el error
+
+            print("Por favor intente nuevamente...\n")  # Solicita ingresar nuevamente el servicio
