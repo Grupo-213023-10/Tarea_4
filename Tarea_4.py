@@ -246,3 +246,24 @@ if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando direct
             opcion = int( # Opción para ingresar el servicio
                 input("\nSeleccione un servicio: ")
             )
+                # RESERVA DE SALA
+            
+            if opcion == 1: # Si presiona tecla 1, escogerá la reserva de sala
+
+                nombre_servicio = input(  # Se solicita ingresar cuál sala escogerá el usuario
+                    "Ingrese nombre de la sala: "
+                )
+
+                precio = float(  # Se ingresa el costo de la sala
+                    input("Ingrese precio base: ")
+                )
+
+                horas = int(  # Cantidad de horas que solicita el usuario
+                    input("Ingrese cantidad de horas: ")
+                )
+
+                servicio = ReservaSala( # Guarda la información de la reserva
+                    nombre_servicio,
+                    precio,
+                    horas
+                )
