@@ -223,3 +223,10 @@ if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando direct
 
                 cliente1.mostrar_info()  # Muestra la información del cliente
             break  # Sale del while
+        except Exception as error:  # Captura el error
+
+            operaciones += 1  # Realiza el conteo de la operación
+
+            print(f"\n{error}")  # Muestra en pantalla el error
+
+            print("Por favor intente nuevamente...\n")  # Muestra en pantalla que intente        
