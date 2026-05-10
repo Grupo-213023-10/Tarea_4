@@ -366,3 +366,22 @@ if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando direct
             print(f"\n{error}")  # Muestra en pantalla el error
 
             print("Por favor intente nuevamente...\n")  # Solicita intentar nuevamente el ingreso del servicio
+
+    try: # Se manejan los errores
+
+        confirmar = input(  # Se confirma la reserva
+            "\n¿Desea confirmar la reserva? (s/n): "
+        )
+
+        if confirmar.lower() == "s":  # Si se presiona s, lo convertirá a minuscula, 
+
+            reserva1.confirmar()  # Mostrará los datos de la reserva y lo confirmará
+
+            operaciones += 1  # Suma una operación
+
+        else:  # Si no presiona s, la reserva no se confirmará
+
+            print("\nReserva no confirmada")  # Mostrará en pantalla 
+
+            operaciones += 1  # Se suma la operación
+            
