@@ -161,7 +161,12 @@ class Servicio(Entidad):  # Clase padre, Para seleccionar el servicio
             self._precio_base = precio_base  # Obtiene el precio base, atributo protegido
 
             logging.info(f"Servicio creado: {nombre}")  # Guarda en log la información del servicio
-            
+        except ValueError as error:  # Captura el error
+
+            logging.error(error)  # Guarda el error en el archivo log
+
+            raise ServicioError("No se pudo crear el servicio") from error  # Muestra el mensaje de error    
+
 class ReservaSala(Servicio):  # Clase Hija de Servicio
 
     
