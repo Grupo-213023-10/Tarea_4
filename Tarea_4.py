@@ -331,3 +331,23 @@ if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando direct
             print(f"\n{error}")  # Muestra en pantalla el error
 
             print("Por favor intente nuevamente...\n")  # Solicita ingresar nuevamente el servicio
+
+            # CREACIÓN DE RESERVA
+ 
+    while True:  # Se crea ciclo infinito, en donde se creará la reserva
+
+        try:  # Se manejarán los errores
+
+            print("\n===== CREAR RESERVA =====")  # Menú de crear reserva
+
+            duracion = int(  # Lo que duró la reserva
+                input("Ingrese duración de la reserva: ")
+            )
+
+            # Crear reserva
+            reserva1 = Reserva(  # Se guarda los datos de la reserva
+                cliente1,
+                servicio,
+                duracion
+            )
+            
