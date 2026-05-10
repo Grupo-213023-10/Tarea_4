@@ -240,7 +240,31 @@ class AlquilerEquipo(Servicio):  # Clase hija de servicio
         print(f"Días: {self.dias}")
         print(f"Precio base: ${self._precio_base}")
 
+class AsesoriaEspecializada(Servicio):  # Clase hija de servicio
 
+    
+    def __init__(self, nombre, precio_base, horas):  # Constructor de la clase
+
+        
+        super().__init__(nombre, precio_base)  # Se llama al constructor de la clase padre
+
+        try:  # Se manejan los errores
+
+            
+            if horas <= 0:  # Se valida el numero de horas de las asesorias
+                raise ValueError("Horas inválidas")  # Muestra un error si es menor a 0
+
+           
+            self.horas = horas  # Guarda la cantidad de horas
+
+            
+            logging.info("AsesoriaEspecializada creada")  # Guarda en archivo log el servicio creado
+
+        except ValueError as error:  # Captura el error
+
+            logging.error(error)  # Guarda en el archivo log el error
+
+            raise ServicioError("Error en AsesoriaEspecializada") from error  # Muestra el error
 
 
 
