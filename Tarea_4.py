@@ -358,6 +358,18 @@ class Reserva:  # Se crea la clase Reserva, quien creará, confirmará o cancela
             if duracion <= 0:  # Valida la cantidad de horas del servicio
                 raise ReservaError("Duración inválida")  # Muestra el error si no se escribe un valor
 
+            # Captura los Atributos de cliente, servicio y duración
+            self.cliente = cliente
+            self.servicio = servicio
+            self.duracion = duracion
+
+            
+            self.estado = "Pendiente"  # Muestra el estado del servicio
+
+            
+            self.fecha = datetime.now()  # Muestra la fecha 
+            
+            logging.info("Reserva creada")  # Guarda en el archivo log la información de la reserva
 
 if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando directamente
 
