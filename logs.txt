@@ -1,0 +1,14 @@
+2026-05-10 16:20:39,600 - INFO - Cliente creado: Emilson Aguilar
+2026-05-10 16:21:23,644 - INFO - Servicio creado: Sala de juegos
+2026-05-10 16:21:23,644 - INFO - ReservaSala creada
+2026-05-10 16:21:30,627 - INFO - Reserva creada
+2026-05-10 16:21:34,779 - INFO - Reserva confirmada
+2026-05-10 16:21:36,151 - INFO - Reserva procesada
+2026-05-10 16:27:28,217 - ERROR - Correo inválido
+2026-05-10 16:28:23,447 - ERROR - El nombre está vacío
+2026-05-10 16:28:49,459 - INFO - Cliente creado: Emilson
+2026-05-10 16:29:07,927 - INFO - Servicio creado: Tesla
+2026-05-10 16:29:07,928 - INFO - AlquilerEquipo creado
+2026-05-10 16:29:12,012 - INFO - Reserva creada
+2026-05-10 16:29:14,194 - INFO - Reserva confirmada
+2026-05-10 16:29:15,114 - INFO - Reserva procesada
