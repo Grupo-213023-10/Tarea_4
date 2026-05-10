@@ -280,7 +280,18 @@ class AsesoriaEspecializada(Servicio):  # Clase hija de servicio
         total = (total1 + total2 - total3)
 
         return total  # Retorna el valor total
-     
+     # Descripción
+    def descripcion(self):  # Muestra la cantidad de Horas de la asesoria
+
+        return f"Asesoría especializada por {self.horas} horas"  # Muestra el valor
+
+    # Mostrar información
+    def mostrar_info(self):
+                # Muestra información en pantalla de la asesoria
+        print("\n===== ASESORÍA =====")
+        print(f"Nombre: {self._nombre}")
+        print(f"Horas: {self.horas}")
+        print(f"Precio base: ${self._precio_base}") 
 
 
 
