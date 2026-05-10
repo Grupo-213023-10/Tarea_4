@@ -400,7 +400,27 @@ class Reserva:  # Se crea la clase Reserva, quien creará, confirmará o cancela
 
             print("Reserva confirmada exitosamente")  # Muestra en pantalla la confirmación de la reserva
 
+    def cancelar(self):  # Función que cancelará la reserva
 
+        try: # Manejará los errores
+
+            
+            if self.estado == "Cancelada":  # validará el estado de la cancelación
+                raise ReservaError("La reserva ya está cancelada")  # Mostrará que ya está cancelada
+
+            self.estado = "Cancelada"  # Cambio de estado
+
+            logging.info("Reserva cancelada")  # Se guardará en el archivo log la reserva cancelada
+
+        except ReservaError as error:  # Captura el error
+
+            logging.error(error)  # Guarda en el log el error
+
+            print(error)  # Muestra en pantalla el error
+
+        else:  # Si no hay error
+
+            print("Reserva cancelada correctamente")  # Muestra en pantalla la cancelación de la reserva
 
 if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando directamente
 
