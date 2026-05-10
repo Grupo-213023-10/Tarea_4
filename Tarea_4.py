@@ -13,6 +13,10 @@ logging.basicConfig( # Configura el sistema de logs
 class ClienteError(Exception): # Crea una excepción personalizada 
     pass # Indica que la clase estará vacía
 
+# Excepción para servicios
+class ServicioError(Exception):
+    pass
+
 # Excepción para reservas
 class ReservaError(Exception):
     pass
@@ -135,6 +139,49 @@ class Cliente(Entidad): # Se crea la clase cliente
         print(f"Nombre: {self.__nombre}")
         print(f"Correo: {self.__correo}")
         print(f"Teléfono: {self.__telefono}")
+
+# Clase abstracta Servicio
+class Servicio(Entidad):  # Clase padre, Para seleccionar el servicio
+
+    # Constructor
+    def __init__(self, nombre, precio_base):  # Constructor de la clase
+
+        try:  # Maneja los errores
+
+            
+            if not nombre.strip():  # Validación si el nombre del servicio está vacío
+                raise ValueError("Nombre del servicio vacío")  # Muestra error si está vacío
+
+            # Validamos precio
+            if precio_base <= 0:  # Verifica que el precio base no sea 0
+                raise ValueError("Precio inválido")  # Muestra error si está vacío
+
+            
+            self._nombre = nombre  # Obtiene el nombre del servicio, es un atributo protegido
+            self._precio_base = precio_base  # Obtiene el precio base, atributo protegido
+
+            logging.info(f"Servicio creado: {nombre}")  # Guarda en log la información del servicio
+        except ValueError as error:  # Captura el error
+
+            logging.error(error)  # Guarda el error en el archivo log
+
+            raise ServicioError("No se pudo crear el servicio") from error  # Muestra el mensaje de error 
+         
+        # Método abstracto
+    @abstractmethod
+    def calcular_costo(self):  # Se usará para calcular costo en cada tio de servicio
+        pass
+
+    # Método abstracto
+    @abstractmethod
+    def descripcion(self):  # Se usará para mostrar datos de la reserva
+        pass
+
+    # Método implementado
+    def mostrar_info(self):  # Se usará para mostrar toda la información
+            # Muestra en pantalla los datos
+        print(f"Servicio: {self._nombre}")
+        print(f"Precio base: ${self._precio_base}")    
 
 
 class ReservaSala(Servicio):  # Clase Hija de Servicio
@@ -293,8 +340,129 @@ class AsesoriaEspecializada(Servicio):  # Clase hija de servicio
         print(f"Horas: {self.horas}")
         print(f"Precio base: ${self._precio_base}") 
 
+class Reserva:  # Se crea la clase Reserva, quien creará, confirmará o cancelará la reserva
 
+    
+    def __init__(self, cliente, servicio, duracion):  # Constructor de la clase
+        try: # Manejará los errores
 
+            
+            if cliente is None:  # Valida que se haya escrito el cliente
+                raise ReservaError("Cliente inexistente")  # Muestra el error si no se ha escrito el cliente
+
+            
+            if servicio is None:  # Valida que se haya escrito el servicio
+                raise ReservaError("Servicio inexistente")  # Muestra el error si no se ha escrito el servicio
+
+            
+            if duracion <= 0:  # Valida la cantidad de horas del servicio
+                raise ReservaError("Duración inválida")  # Muestra el error si no se escribe un valor
+
+            # Captura los Atributos de cliente, servicio y duración
+            self.cliente = cliente
+            self.servicio = servicio
+            self.duracion = duracion
+
+            
+            self.estado = "Pendiente"  # Muestra el estado del servicio
+
+            
+            self.fecha = datetime.now()  # Muestra la fecha 
+            
+            logging.info("Reserva creada")  # Guarda en el archivo log la información de la reserva
+
+        except ReservaError as error:  # Captura el error
+
+            logging.error(error)  # Guarda en el log el error
+
+            print(error)  # Muestra en pantalla el error 
+            
+    # Confirmar reserva
+    def confirmar(self):  # Función que confirmará la reserva
+
+        try:  # Manejará los errores
+
+            if self.estado == "Confirmada":  # validará el estado de confirmación
+                raise ReservaError("La reserva ya está confirmada")  # Mostrará que ya está confirmada
+
+            self.estado = "Confirmada"  # Cambio de estado
+
+            # Log
+            logging.info("Reserva confirmada")  # Se guardará en el archivo log la reserva confirmada
+
+        except ReservaError as error:  # Captura el error
+
+            logging.error(error)  # Guarda en el log el error
+
+            print(error)  # Muestra en pantalla el error
+
+        else:  # Si no hay error
+
+            print("Reserva confirmada exitosamente")  # Muestra en pantalla la confirmación de la reserva
+
+    def cancelar(self):  # Función que cancelará la reserva
+
+        try: # Manejará los errores
+
+            
+            if self.estado == "Cancelada":  # validará el estado de la cancelación
+                raise ReservaError("La reserva ya está cancelada")  # Mostrará que ya está cancelada
+
+            self.estado = "Cancelada"  # Cambio de estado
+
+            logging.info("Reserva cancelada")  # Se guardará en el archivo log la reserva cancelada
+
+        except ReservaError as error:  # Captura el error
+
+            logging.error(error)  # Guarda en el log el error
+
+            print(error)  # Muestra en pantalla el error
+
+        else:  # Si no hay error
+
+            print("Reserva cancelada correctamente")  # Muestra en pantalla la cancelación de la reserva
+
+    def procesar(self):  # Función para Procesar la reserva
+
+        try:  # Manejará los errores
+
+            
+            if self.estado == "Cancelada":  # Valida si el estado de la reserva es cancelada
+                raise ReservaError(  # Si la reserva está cancelada, no se puede procesar
+                    "No se puede procesar una reserva cancelada"
+                )
+
+            # Cálculo del total
+            total = self.servicio.calcular_costo()  # Guarda el costo total
+
+            # Muestra en pantalla la factura, con la información completa
+            print("\n===== FACTURA =====")
+            print(f"Cliente: {self.cliente.get_nombre()}")
+            print(f"Servicio: {self.servicio.descripcion()}")
+            print(f"Estado: {self.estado}")
+            print(f"Total a pagar: ${total}")
+
+            logging.info("Reserva procesada")  # Se guarda en log la reserva
+
+        except Exception as error:  # Captura el error
+
+            logging.error(error)  # Guarda en log el error
+
+            print(error)  # Muestra en pantalla el error
+
+        finally:  # Ejecuta obligatoriamente lo que tiene dentro
+
+            print("Proceso finalizado\n")  # Muestra en pantalla la finalización del proceso
+
+ # Mostrar información
+    def mostrar_reserva(self):  # Función para mostrar toda la información en pantalla
+            # Muestra en pantalla datos de la reserva
+        print("\n===== RESERVA =====")
+        print(f"Cliente: {self.cliente.get_nombre()}")
+        print(f"Servicio: {self.servicio.descripcion()}")
+        print(f"Duración: {self.duracion}")
+        print(f"Estado: {self.estado}")
+        print(f"Fecha: {self.fecha}")
 
 if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando directamente
 
