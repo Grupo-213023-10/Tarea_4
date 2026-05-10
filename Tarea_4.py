@@ -203,7 +203,6 @@ class AlquilerEquipo(Servicio):  # Clase hija de servicio
             if dias <= 0:  # Valida que se indique la cantidad de dias
                 raise ValueError("Días inválidos")  # Muestra error si no se escribe o si el valor es 0
 
-            
             self.dias = dias  # Guarda los dias
 
             logging.info("AlquilerEquipo creado")  # Guarda en el archivo los datos para el servicio 
@@ -213,7 +212,21 @@ class AlquilerEquipo(Servicio):  # Clase hija de servicio
             logging.error(error)  # Guarda el error en el archivo log
 
             raise ServicioError("Error en AlquilerEquipo") from error  # Muestra error
+        
+    def calcular_costo(self, impuesto=0, descuento=0):  # Aplicamos polimorfismo en esta función
 
+        # Cálculo
+        total1 = self._precio_base * self.dias
+        
+        # Aplica Impuesto
+        total2 = total1 * impuesto
+
+        # Aplica Descuento
+        total3 = total1 * descuento
+
+        total = (total1 + total2 - total3)
+
+        return total  # Devuelve el total del servicio
 
 
 
@@ -422,7 +435,7 @@ if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando direct
             )
             servicio.horas = duracion
             servicio.dias = duracion
-            
+
             # Crear reserva
             reserva1 = Reserva(  # Se guarda los datos de la reserva
                 cliente1,
