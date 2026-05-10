@@ -205,6 +205,14 @@ class AlquilerEquipo(Servicio):  # Clase hija de servicio
 
             
             self.dias = dias  # Guarda los dias
+            
+            logging.info("AlquilerEquipo creado")  # Guarda en el archivo los datos para el servicio 
+
+        except ValueError as error:  # Captura el error
+
+            logging.error(error)  # Guarda el error en el archivo log
+
+            raise ServicioError("Error en AlquilerEquipo") from error  # Muestra error
 
 
 
