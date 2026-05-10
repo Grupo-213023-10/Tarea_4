@@ -370,12 +370,37 @@ class Reserva:  # Se crea la clase Reserva, quien creará, confirmará o cancela
             self.fecha = datetime.now()  # Muestra la fecha 
             
             logging.info("Reserva creada")  # Guarda en el archivo log la información de la reserva
-            
+
         except ReservaError as error:  # Captura el error
 
             logging.error(error)  # Guarda en el log el error
 
-            print(error)  # Muestra en pantalla el error            
+            print(error)  # Muestra en pantalla el error 
+            
+    # Confirmar reserva
+    def confirmar(self):  # Función que confirmará la reserva
+
+        try:  # Manejará los errores
+
+            if self.estado == "Confirmada":  # validará el estado de confirmación
+                raise ReservaError("La reserva ya está confirmada")  # Mostrará que ya está confirmada
+
+            self.estado = "Confirmada"  # Cambio de estado
+
+            # Log
+            logging.info("Reserva confirmada")  # Se guardará en el archivo log la reserva confirmada
+
+        except ReservaError as error:  # Captura el error
+
+            logging.error(error)  # Guarda en el log el error
+
+            print(error)  # Muestra en pantalla el error
+
+        else:  # Si no hay error
+
+            print("Reserva confirmada exitosamente")  # Muestra en pantalla la confirmación de la reserva
+
+
 
 if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando directamente
 
