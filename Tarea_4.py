@@ -358,6 +358,69 @@ class Reserva:  # Se crea la clase Reserva, quien creará, confirmará o cancela
             if duracion <= 0:  # Valida la cantidad de horas del servicio
                 raise ReservaError("Duración inválida")  # Muestra el error si no se escribe un valor
 
+            # Captura los Atributos de cliente, servicio y duración
+            self.cliente = cliente
+            self.servicio = servicio
+            self.duracion = duracion
+
+            
+            self.estado = "Pendiente"  # Muestra el estado del servicio
+
+            
+            self.fecha = datetime.now()  # Muestra la fecha 
+            
+            logging.info("Reserva creada")  # Guarda en el archivo log la información de la reserva
+
+        except ReservaError as error:  # Captura el error
+
+            logging.error(error)  # Guarda en el log el error
+
+            print(error)  # Muestra en pantalla el error 
+            
+    # Confirmar reserva
+    def confirmar(self):  # Función que confirmará la reserva
+
+        try:  # Manejará los errores
+
+            if self.estado == "Confirmada":  # validará el estado de confirmación
+                raise ReservaError("La reserva ya está confirmada")  # Mostrará que ya está confirmada
+
+            self.estado = "Confirmada"  # Cambio de estado
+
+            # Log
+            logging.info("Reserva confirmada")  # Se guardará en el archivo log la reserva confirmada
+
+        except ReservaError as error:  # Captura el error
+
+            logging.error(error)  # Guarda en el log el error
+
+            print(error)  # Muestra en pantalla el error
+
+        else:  # Si no hay error
+
+            print("Reserva confirmada exitosamente")  # Muestra en pantalla la confirmación de la reserva
+
+    def cancelar(self):  # Función que cancelará la reserva
+
+        try: # Manejará los errores
+
+            
+            if self.estado == "Cancelada":  # validará el estado de la cancelación
+                raise ReservaError("La reserva ya está cancelada")  # Mostrará que ya está cancelada
+
+            self.estado = "Cancelada"  # Cambio de estado
+
+            logging.info("Reserva cancelada")  # Se guardará en el archivo log la reserva cancelada
+
+        except ReservaError as error:  # Captura el error
+
+            logging.error(error)  # Guarda en el log el error
+
+            print(error)  # Muestra en pantalla el error
+
+        else:  # Si no hay error
+
+            print("Reserva cancelada correctamente")  # Muestra en pantalla la cancelación de la reserva
 
 if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando directamente
 
