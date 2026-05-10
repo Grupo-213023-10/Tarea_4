@@ -350,4 +350,12 @@ if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando direct
                 servicio,
                 duracion
             )
+            reservas.append(reserva1)  # Crea la reserva
             
+            operaciones += 1  # Realiza el conteo de esta operación
+
+            print("\nReserva creada correctamente")  # Confirmación de la reserva
+
+            reserva1.mostrar_reserva()  # Muestra la información de la reserva
+
+            break  # Sale del while

@@ -1,0 +1,5 @@
+2026-05-09 19:35:02,273 - INFO - Cliente creado: eememe
+2026-05-09 19:35:19,083 - INFO - Servicio creado: mmsms
+2026-05-09 19:35:19,084 - INFO - AlquilerEquipo creado
+2026-05-09 19:35:23,839 - INFO - Reserva creada
+2026-05-09 19:35:33,848 - INFO - Reserva procesada
