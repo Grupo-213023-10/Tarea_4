@@ -176,6 +176,18 @@ class ReservaSala(Servicio):  # Clase Hija de Servicio
         total = (total1 + total2 - total3)
 
         return total  # Devuelve el total a cobrar
+    
+    def descripcion(self): # Mostrará los datos de la reserva 
+
+        return f"Reserva de sala por {self.horas} horas" # Retornará este mensaje
+
+    # Mostrar información
+    def mostrar_info(self):  # Mostrará información completa de la reserva
+            # Muestra en pantalla datos
+        print("\n===== RESERVA DE SALA =====")
+        print(f"Nombre: {self._nombre}")
+        print(f"Horas: {self.horas}")
+        print(f"Precio base: ${self._precio_base}")
 
 
 
