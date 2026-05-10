@@ -161,7 +161,21 @@ class ReservaSala(Servicio):  # Clase Hija de Servicio
             logging.error(error)  # Guarda el error en el archivo log
 
             raise ServicioError("Error en ReservaSala") from error  # Muestra error
+        
+    def calcular_costo(self, impuesto=0.5, descuento=0.3):  # Aquí aplicamos un poliformismo con esta función
 
+        # Cálculo
+        total1 = self._precio_base * self.horas
+        
+        # Aplica Impuesto
+        total2 = total1 * impuesto
+
+        # Aplica Descuento
+        total3 = total1 * descuento
+
+        total = (total1 + total2 - total3)
+
+        return total  # Devuelve el total a cobrar
 
 
 
