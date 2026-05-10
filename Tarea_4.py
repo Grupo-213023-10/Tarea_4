@@ -384,4 +384,27 @@ if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando direct
             print("\nReserva no confirmada")  # Mostrará en pantalla 
 
             operaciones += 1  # Se suma la operación
-            
+    except Exception as error:  # Captura el error
+
+        operaciones += 1  # Suma una operación
+
+        print(f"\n{error}")  # Muestra en pantalla el error
+
+    try:  # Manejo de errores
+
+        procesar = input(  # Ingreso del procesamiento de la reserva
+            "\n¿Desea procesar la reserva? (s/n): "
+        )
+
+        if procesar.lower() == "s":  # Se presiona s, si si va a procesar la reserva
+
+            reserva1.procesar()  # Procesa la reserva
+
+            operaciones += 1  # Suma una operación
+
+        else:  # Si no presiona s, no procesará la reserva
+
+            print("\nReserva no procesada")  # Lo muestra en pantalla
+
+            operaciones += 1  # Suma una operación  
+                      
