@@ -344,6 +344,20 @@ class Reserva:  # Se crea la clase Reserva, quien creará, confirmará o cancela
 
     
     def __init__(self, cliente, servicio, duracion):  # Constructor de la clase
+        try: # Manejará los errores
+
+            
+            if cliente is None:  # Valida que se haya escrito el cliente
+                raise ReservaError("Cliente inexistente")  # Muestra el error si no se ha escrito el cliente
+
+            
+            if servicio is None:  # Valida que se haya escrito el servicio
+                raise ReservaError("Servicio inexistente")  # Muestra el error si no se ha escrito el servicio
+
+            
+            if duracion <= 0:  # Valida la cantidad de horas del servicio
+                raise ReservaError("Duración inválida")  # Muestra el error si no se escribe un valor
+
 
 if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando directamente
 
