@@ -265,6 +265,22 @@ class AsesoriaEspecializada(Servicio):  # Clase hija de servicio
             logging.error(error)  # Guarda en el archivo log el error
 
             raise ServicioError("Error en AsesoriaEspecializada") from error  # Muestra el error
+        
+    def calcular_costo(self, impuesto=0, descuento=0):  # Se aplica polimorfismo 
+
+        # Cálculo
+        total1 = self._precio_base * self.horas
+        
+        # Aplica Impuesto
+        total2 = total1 * impuesto
+
+        # Aplica Descuento
+        total3 = total1 * descuento
+
+        total = (total1 + total2 - total3)
+
+        return total  # Retorna el valor total
+     
 
 
 
