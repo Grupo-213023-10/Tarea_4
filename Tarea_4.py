@@ -422,6 +422,38 @@ class Reserva:  # Se crea la clase Reserva, quien creará, confirmará o cancela
 
             print("Reserva cancelada correctamente")  # Muestra en pantalla la cancelación de la reserva
 
+    def procesar(self):  # Función para Procesar la reserva
+
+        try:  # Manejará los errores
+
+            
+            if self.estado == "Cancelada":  # Valida si el estado de la reserva es cancelada
+                raise ReservaError(  # Si la reserva está cancelada, no se puede procesar
+                    "No se puede procesar una reserva cancelada"
+                )
+
+            # Cálculo del total
+            total = self.servicio.calcular_costo()  # Guarda el costo total
+
+            # Muestra en pantalla la factura, con la información completa
+            print("\n===== FACTURA =====")
+            print(f"Cliente: {self.cliente.get_nombre()}")
+            print(f"Servicio: {self.servicio.descripcion()}")
+            print(f"Estado: {self.estado}")
+            print(f"Total a pagar: ${total}")
+
+            logging.info("Reserva procesada")  # Se guarda en log la reserva
+
+        except Exception as error:  # Captura el error
+
+            logging.error(error)  # Guarda en log el error
+
+            print(error)  # Muestra en pantalla el error
+
+        finally:  # Ejecuta obligatoriamente lo que tiene dentro
+
+            print("Proceso finalizado\n")  # Muestra en pantalla la finalización del proceso
+
 if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando directamente
 
     print("\n========= SOFTWARE FJ =========") # Nombre de la empresa
