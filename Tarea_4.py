@@ -213,7 +213,7 @@ class AlquilerEquipo(Servicio):  # Clase hija de servicio
 
             raise ServicioError("Error en AlquilerEquipo") from error  # Muestra error
         
-    def calcular_costo(self, impuesto=0, descuento=0):  # Aplicamos polimorfismo en esta función
+    def calcular_costo(self, impuesto=0.3, descuento=0.1):  # Aplicamos polimorfismo en esta función
 
         # Cálculo
         total1 = self._precio_base * self.dias
@@ -266,7 +266,7 @@ class AsesoriaEspecializada(Servicio):  # Clase hija de servicio
 
             raise ServicioError("Error en AsesoriaEspecializada") from error  # Muestra el error
         
-    def calcular_costo(self, impuesto=0, descuento=0):  # Se aplica polimorfismo 
+    def calcular_costo(self, impuesto=0.2, descuento=0.4):  # Se aplica polimorfismo 
 
         # Cálculo
         total1 = self._precio_base * self.horas
