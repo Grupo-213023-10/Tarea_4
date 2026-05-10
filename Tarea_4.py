@@ -370,6 +370,12 @@ class Reserva:  # Se crea la clase Reserva, quien creará, confirmará o cancela
             self.fecha = datetime.now()  # Muestra la fecha 
             
             logging.info("Reserva creada")  # Guarda en el archivo log la información de la reserva
+            
+        except ReservaError as error:  # Captura el error
+
+            logging.error(error)  # Guarda en el log el error
+
+            print(error)  # Muestra en pantalla el error            
 
 if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando directamente
 
