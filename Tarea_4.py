@@ -188,6 +188,12 @@ class ReservaSala(Servicio):  # Clase Hija de Servicio
         print(f"Nombre: {self._nombre}")
         print(f"Horas: {self.horas}")
         print(f"Precio base: ${self._precio_base}")
+        
+
+class AlquilerEquipo(Servicio):  # Clase hija de servicio
+
+    # Constructor
+    def __init__(self, nombre, precio_base, dias):  # Construye a la clase        
 
 
 
