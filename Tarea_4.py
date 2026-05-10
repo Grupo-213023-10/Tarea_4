@@ -1,3 +1,8 @@
+# Nombre del estudiante: Emilson David Aguilar Feria
+# Grupo: 213023_10
+# Programa: Ingeniería electrónica
+# Código Fuente: autoría propia
+
 from abc import ABC, abstractmethod  # Librería para crear clases abstractas
 import logging  # Librería para manejar logs
 from datetime import datetime  # Librería para fechas
