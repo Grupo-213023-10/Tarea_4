@@ -454,6 +454,16 @@ class Reserva:  # Se crea la clase Reserva, quien creará, confirmará o cancela
 
             print("Proceso finalizado\n")  # Muestra en pantalla la finalización del proceso
 
+ # Mostrar información
+    def mostrar_reserva(self):  # Función para mostrar toda la información en pantalla
+            # Muestra en pantalla datos de la reserva
+        print("\n===== RESERVA =====")
+        print(f"Cliente: {self.cliente.get_nombre()}")
+        print(f"Servicio: {self.servicio.descripcion()}")
+        print(f"Duración: {self.duracion}")
+        print(f"Estado: {self.estado}")
+        print(f"Fecha: {self.fecha}")
+
 if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando directamente
 
     print("\n========= SOFTWARE FJ =========") # Nombre de la empresa
