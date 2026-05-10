@@ -359,3 +359,10 @@ if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando direct
             reserva1.mostrar_reserva()  # Muestra la información de la reserva
 
             break  # Sale del while
+        except Exception as error:  # Se captura el error
+
+            operaciones += 1  # Se realiza el conteo de la operación
+
+            print(f"\n{error}")  # Muestra en pantalla el error
+
+            print("Por favor intente nuevamente...\n")  # Solicita intentar nuevamente el ingreso del servicio
