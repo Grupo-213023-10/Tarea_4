@@ -1,0 +1,61 @@
+2026-05-10 03:08:14,796 - INFO - Cliente creado: lina
+2026-05-10 03:08:26,583 - INFO - Teléfono actualizado
+2026-05-10 03:08:50,386 - INFO - Servicio creado: tony
+2026-05-10 03:08:50,387 - INFO - ReservaSala creada
+2026-05-10 03:09:01,701 - INFO - Reserva creada
+2026-05-10 03:09:05,595 - INFO - Reserva confirmada
+2026-05-10 03:09:10,781 - INFO - Reserva procesada
+2026-05-10 04:08:38,662 - INFO - Cliente creado: ldldld
+2026-05-10 04:08:56,779 - INFO - Servicio creado: tony
+2026-05-10 04:08:56,780 - INFO - ReservaSala creada
+2026-05-10 04:09:08,531 - INFO - Reserva creada
+2026-05-10 04:09:24,642 - INFO - Reserva confirmada
+2026-05-10 04:09:29,271 - INFO - Reserva procesada
+2026-05-10 04:11:22,436 - INFO - Cliente creado: hhhh
+2026-05-10 04:11:37,243 - INFO - Servicio creado: ll
+2026-05-10 04:11:37,243 - INFO - ReservaSala creada
+2026-05-10 04:11:43,723 - INFO - Reserva creada
+2026-05-10 04:11:45,133 - INFO - Reserva confirmada
+2026-05-10 04:11:46,747 - INFO - Reserva procesada
+2026-05-10 04:13:34,033 - INFO - Cliente creado: ggg
+2026-05-10 04:13:46,828 - INFO - Servicio creado: d
+2026-05-10 04:13:46,828 - INFO - ReservaSala creada
+2026-05-10 04:13:49,748 - INFO - Reserva creada
+2026-05-10 04:13:51,830 - INFO - Reserva confirmada
+2026-05-10 04:13:53,657 - INFO - Reserva procesada
+2026-05-10 04:16:49,888 - INFO - Cliente creado: gggg
+2026-05-10 04:17:02,194 - INFO - Servicio creado: ñ
+2026-05-10 04:17:02,194 - INFO - ReservaSala creada
+2026-05-10 04:17:09,694 - INFO - Reserva creada
+2026-05-10 04:17:12,019 - INFO - Reserva confirmada
+2026-05-10 04:17:14,322 - INFO - Reserva procesada
+2026-05-10 04:32:59,591 - INFO - Cliente creado: ggg
+2026-05-10 04:33:11,117 - INFO - Servicio creado: d
+2026-05-10 04:33:11,118 - INFO - ReservaSala creada
+2026-05-10 04:33:13,758 - INFO - Reserva creada
+2026-05-10 04:33:17,463 - INFO - Reserva confirmada
+2026-05-10 04:33:18,958 - INFO - Reserva procesada
+2026-05-10 04:48:09,685 - INFO - Cliente creado: kkkk
+2026-05-10 04:48:22,429 - INFO - Servicio creado: l
+2026-05-10 04:48:22,429 - INFO - ReservaSala creada
+2026-05-10 04:48:25,499 - INFO - Reserva creada
+2026-05-10 04:48:27,907 - INFO - Reserva confirmada
+2026-05-10 04:48:29,988 - ERROR - cannot access local variable 'total' where it is not associated with a value
+2026-05-10 04:50:49,012 - INFO - Cliente creado: l
+2026-05-10 04:51:01,916 - INFO - Servicio creado: ñ
+2026-05-10 04:51:01,916 - INFO - ReservaSala creada
+2026-05-10 04:51:05,588 - INFO - Reserva creada
+2026-05-10 04:51:07,132 - INFO - Reserva confirmada
+2026-05-10 04:51:08,749 - INFO - Reserva procesada
+2026-05-10 05:00:31,938 - INFO - Cliente creado: ddd
+2026-05-10 05:00:43,116 - INFO - Servicio creado: d
+2026-05-10 05:00:43,117 - INFO - ReservaSala creada
+2026-05-10 05:00:45,560 - INFO - Reserva creada
+2026-05-10 05:00:49,933 - INFO - Reserva confirmada
+2026-05-10 05:00:50,659 - INFO - Reserva procesada
+2026-05-10 05:01:07,653 - INFO - Cliente creado: f
+2026-05-10 05:01:19,648 - INFO - Servicio creado: f
+2026-05-10 05:01:19,649 - INFO - ReservaSala creada
+2026-05-10 05:01:24,702 - INFO - Reserva creada
+2026-05-10 05:01:27,509 - INFO - Reserva confirmada
+2026-05-10 05:01:29,584 - INFO - Reserva procesada

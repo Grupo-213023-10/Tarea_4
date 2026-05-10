@@ -13,6 +13,9 @@ logging.basicConfig( # Configura el sistema de logs
 class ClienteError(Exception): # Crea una excepción personalizada 
     pass # Indica que la clase estará vacía
 
+# Excepción para reservas
+class ReservaError(Exception):
+    pass
 class Entidad(ABC):  # Se crea la clase abstracta entidad
 
     @abstractmethod  # Indica que el método siguiente debe implementarse obligatoriamente en las clases hijas.
@@ -134,6 +137,30 @@ class Cliente(Entidad): # Se crea la clase cliente
         print(f"Teléfono: {self.__telefono}")
 
 
+class ReservaSala(Servicio):  # Clase Hija de Servicio
+
+    
+    def __init__(self, nombre, precio_base, horas):  # Inicia el constructor de la clase
+
+        
+        super().__init__(nombre, precio_base) # Se llama al contructor de la clase padre
+
+        try:  # Manejará los errores
+
+            
+            if horas <= 0:  # Valida que las horas sean mayores a 0
+                raise ValueError("Horas inválidas")  # Sino muestra el error y el mensaje
+
+            self.horas = horas  # Guarda las horas
+
+            # Log
+            logging.info("ReservaSala creada")  # Guarda la reserva de sala en el archivo log
+
+        except ValueError as error:  # Captura el error
+
+            logging.error(error)  # Guarda el error en el archivo log
+
+            raise ServicioError("Error en ReservaSala") from error  # Muestra error
 
 
 
