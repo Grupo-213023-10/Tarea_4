@@ -227,6 +227,19 @@ class AlquilerEquipo(Servicio):  # Clase hija de servicio
         total = (total1 + total2 - total3)
 
         return total  # Devuelve el total del servicio
+    
+    def descripcion(self):  # Arroja el dato del alquiler en # de días
+
+        return f"Alquiler de equipo por {self.dias} días"
+
+    # Muestra información
+    def mostrar_info(self):
+            # Se muestra en pantalla toda la informaión del servicio de alquiler
+        print("\n===== ALQUILER DE EQUIPO =====")
+        print(f"Nombre: {self._nombre}")
+        print(f"Días: {self.dias}")
+        print(f"Precio base: ${self._precio_base}")
+
 
 
 
