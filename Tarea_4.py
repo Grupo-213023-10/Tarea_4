@@ -188,13 +188,23 @@ class ReservaSala(Servicio):  # Clase Hija de Servicio
         print(f"Nombre: {self._nombre}")
         print(f"Horas: {self.horas}")
         print(f"Precio base: ${self._precio_base}")
-        
+
 
 class AlquilerEquipo(Servicio):  # Clase hija de servicio
 
     # Constructor
     def __init__(self, nombre, precio_base, dias):  # Construye a la clase        
 
+        super().__init__(nombre, precio_base)  # Hace un llamado al constructor de la clase padre
+
+        try:  # Maneja los errores
+
+            
+            if dias <= 0:  # Valida que se indique la cantidad de dias
+                raise ValueError("Días inválidos")  # Muestra error si no se escribe o si el valor es 0
+
+            
+            self.dias = dias  # Guarda los dias
 
 
 
