@@ -205,7 +205,7 @@ class AlquilerEquipo(Servicio):  # Clase hija de servicio
 
             
             self.dias = dias  # Guarda los dias
-            
+
             logging.info("AlquilerEquipo creado")  # Guarda en el archivo los datos para el servicio 
 
         except ValueError as error:  # Captura el error
@@ -336,7 +336,7 @@ if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando direct
                 )
 
                 horas = int(  # Cantidad de horas que solicita el usuario
-                    input("Ingrese cantidad de horas: ")
+                    input("Ingrese cantidad de horas solicitadas: ")
                 )
 
                 servicio = ReservaSala( # Guarda la información de la reserva
@@ -357,7 +357,7 @@ if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando direct
                 )
 
                 dias = int(  # Cantidad de dias que solicita el usuario
-                    input("Ingrese cantidad de días: ")
+                    input("Ingrese cantidad de días solicitados: ")
                 )
 
                 servicio = AlquilerEquipo(  # Guarda la información de la reserva
@@ -379,7 +379,7 @@ if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando direct
                 )
 
                 horas = int(  # Horas en la asesoría
-                    input("Ingrese cantidad de horas: ")
+                    input("Ingrese cantidad de horas solicitadas: ")
                 )
 
                 servicio = AsesoriaEspecializada(  # Guarda la información
@@ -418,9 +418,11 @@ if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando direct
             print("\n===== CREAR RESERVA =====")  # Menú de crear reserva
 
             duracion = int(  # Lo que duró la reserva
-                input("Ingrese duración de la reserva: ")
+                input("Ingrese duración real de la reserva: ")
             )
-
+            servicio.horas = duracion
+            servicio.dias = duracion
+            
             # Crear reserva
             reserva1 = Reserva(  # Se guarda los datos de la reserva
                 cliente1,
