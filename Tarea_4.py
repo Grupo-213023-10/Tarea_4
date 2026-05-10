@@ -13,6 +13,10 @@ logging.basicConfig( # Configura el sistema de logs
 class ClienteError(Exception): # Crea una excepción personalizada 
     pass # Indica que la clase estará vacía
 
+# Excepción para servicios
+class ServicioError(Exception):
+    pass
+
 # Excepción para reservas
 class ReservaError(Exception):
     pass
