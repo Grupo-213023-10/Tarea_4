@@ -340,6 +340,10 @@ class AsesoriaEspecializada(Servicio):  # Clase hija de servicio
         print(f"Horas: {self.horas}")
         print(f"Precio base: ${self._precio_base}") 
 
+class Reserva:  # Se crea la clase Reserva, quien creará, confirmará o cancelará la reserva
+
+    
+    def __init__(self, cliente, servicio, duracion):  # Constructor de la clase
 
 if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando directamente
 
