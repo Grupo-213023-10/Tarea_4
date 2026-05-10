@@ -165,7 +165,24 @@ class Servicio(Entidad):  # Clase padre, Para seleccionar el servicio
 
             logging.error(error)  # Guarda el error en el archivo log
 
-            raise ServicioError("No se pudo crear el servicio") from error  # Muestra el mensaje de error    
+            raise ServicioError("No se pudo crear el servicio") from error  # Muestra el mensaje de error 
+         
+        # Método abstracto
+    @abstractmethod
+    def calcular_costo(self):  # Se usará para calcular costo en cada tio de servicio
+        pass
+
+    # Método abstracto
+    @abstractmethod
+    def descripcion(self):  # Se usará para mostrar datos de la reserva
+        pass
+
+    # Método implementado
+    def mostrar_info(self):  # Se usará para mostrar toda la información
+            # Muestra en pantalla los datos
+        print(f"Servicio: {self._nombre}")
+        print(f"Precio base: ${self._precio_base}")    
+
 
 class ReservaSala(Servicio):  # Clase Hija de Servicio
 
@@ -322,8 +339,6 @@ class AsesoriaEspecializada(Servicio):  # Clase hija de servicio
         print(f"Nombre: {self._nombre}")
         print(f"Horas: {self.horas}")
         print(f"Precio base: ${self._precio_base}") 
-
-
 
 
 if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando directamente
