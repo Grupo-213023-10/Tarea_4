@@ -407,4 +407,12 @@ if __name__ == "__main__":  # Verifica que el archivo se esté ejecutando direct
             print("\nReserva no procesada")  # Lo muestra en pantalla
 
             operaciones += 1  # Suma una operación  
-                      
+    except Exception as error:  # Captura el error
+
+        operaciones += 1  # Suma una operación
+
+        print(f"\n{error}")  # Muestra en pantalla el error
+
+    print(f"\nOperaciones realizadas: {operaciones}")  # Muestra en pantalla todas las operaciones realizadas
+    
+    print("\n========= FIN DEL SISTEMA =========")  # Indica la finalización del programa                  
