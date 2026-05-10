@@ -140,7 +140,28 @@ class Cliente(Entidad): # Se crea la clase cliente
         print(f"Correo: {self.__correo}")
         print(f"Teléfono: {self.__telefono}")
 
+# Clase abstracta Servicio
+class Servicio(Entidad):  # Clase padre, Para seleccionar el servicio
 
+    # Constructor
+    def __init__(self, nombre, precio_base):  # Constructor de la clase
+
+        try:  # Maneja los errores
+
+            
+            if not nombre.strip():  # Validación si el nombre del servicio está vacío
+                raise ValueError("Nombre del servicio vacío")  # Muestra error si está vacío
+
+            # Validamos precio
+            if precio_base <= 0:  # Verifica que el precio base no sea 0
+                raise ValueError("Precio inválido")  # Muestra error si está vacío
+
+            
+            self._nombre = nombre  # Obtiene el nombre del servicio, es un atributo protegido
+            self._precio_base = precio_base  # Obtiene el precio base, atributo protegido
+
+            logging.info(f"Servicio creado: {nombre}")  # Guarda en log la información del servicio
+            
 class ReservaSala(Servicio):  # Clase Hija de Servicio
 
     
